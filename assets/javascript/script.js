@@ -57,7 +57,7 @@ function presentPrompts()
       passwordLength = Number(window.prompt("Please select the length of your password. \n\nPassword must be between 8 and 128 characters.", ""));
       if(passwordLength >= 8 && passwordLength <=128)
       {
-        return;
+        passwordLength = passwordLength;
       }
     }
     password();
