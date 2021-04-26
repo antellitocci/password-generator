@@ -25,8 +25,6 @@ var inclNumeric = false;
 var inclSpecial = false;
 var passwordLength = 0;
 
-
-
 //Present Prompts
 function presentPrompts()
 {
@@ -62,81 +60,63 @@ function presentPrompts()
         return;
       }
     }
-    generatePassword();
+    password();
 
 }
+
+function password()
+{
+    //Set the generated password equal to an empty string to start.
+    var generatedPassword = '';
+    //Create an array of user selection
+    var userSelectionArray = [inclLowercase, inclUppercase, inclNumeric, inclSpecial];
+    //Create arrays of all possible characters. 
+    var availableLowerArray = "abcdefghijklmnopqrstuvwxyz".split("");
+    var availableUpperArrary = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    var availableNumericArray = "0123456789".split("");
+    var availableSpecialArray = "!@#$%^&*()-+=".split("");
+
+    for (var i=0; i < userSelectionArray.length; i ++)
+    {
+      switch(false)
+      {
+        case userSelectionArray[0]:
+          availableLowerArray = [];
+          break;
+        case userSelectionArray[1]:
+          availableUpperArrary = [];
+          break;
+        case userSelectionArray[2]:
+          availableNumericArray = [];
+          break;
+        case userSelectionArray[3]:
+          availableSpecialArray = [];
+          break;
+        default:
+          break;
+      }
+    }
+
+    //Concatenate all character arrays to create master character array for password generation.
+    var availableCharArray = availableLowerArray.concat(availableUpperArrary, availableNumericArray, availableSpecialArray);
+    console.log(availableCharArray);
+    //Generate a random password
+    for (var i=0; i < passwordLength; i++)
+    {
+      var randomNum = Math.floor(Math.random()*availableCharArray.length);
+      var randomArrayValue = availableCharArray[randomNum].toString();
+      generatedPassword += randomArrayValue;
+    }
+    console.log(generatedPassword);
+    writePassword(generatedPassword);
+    return generatedPassword;
+}
+
 
 //Generate password
 function generatePassword()
 {
-  //Set the generated password equal to an empty string to start.
-  var generatedPassword = '';
-  //Create an array of all possible characters. Include at the top so every time this function is run include all available characters.
-  const availableCharArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-+=".split("");
-  //Remove segments of the array based on user selection
-  if (inclLowercase != false && inclUppercase === false && inclNumeric === false && inclSpecial === false)
-  {
-    availableCharArray.splice(26,51);
-    availableCharArray.splice(52,61);
-    availableCharArray.splice(62,74);
-  }
-  else if (inclLowercase != false && inclUppercase != false && inclNumeric === false && inclSpecial === false)
-  {
-    availableCharArray.splice(52,61);
-    availableCharArray.splice(62,74);
-  }
-  else if (inclLowercase != false && inclUppercase != false && inclNumeric != false && inclSpecial === false)
-  {
-    availableCharArray.splice(62,74);
-  }
-  else if (inclLowercase != false && inclUppercase != false && inclNumeric != false && inclSpecial != false)
-  {
-    availableCharArray;
-  }
-  //THIS IS THE ONLY CORRECT ONE AT THE MOMENT
-  else if (inclLowercase === false && inclUppercase !== false && inclNumeric === false && inclSpecial === false)
-  {
-    availableCharArray.splice(0,26);
-    availableCharArray.splice(26,49);
-  }
-  else if (inclLowercase === false && inclUppercase != false && inclNumeric != false && inclSpecial === false)
-  {
-    availableCharArray.splice(0,25);
-    availableCharArray.splice(62,74);
-  }
-  else if (inclLowercase === false && inclUppercase != false && inclNumeric != false && inclSpecial != false)
-  {
-    availableCharArray.splice(0,26);
-  }
-  else if (inclLowercase === false && inclUppercase === false && inclNumeric != false && inclSpecial === false)
-  {
-    availableCharArray.splice(0,25);
-    availableCharArray.splice(26,51);
-    availableCharArray.splice(62,74);
-  }
-  else if(inclLowercase === false && inclUppercase === false && inclNumeric != false && inclSpecial != false)
-  {
-    availableCharArray.splice(0,25);
-    availableCharArray.splice(52,61);
-  }
 
-  //Still need to check additional conditions, like when everything else is true but numbers
-  else
-  {
-    availableCharArray;
-  }
-
-  console.log(availableCharArray);
-  //Generate a random password
-  for (var i=0; i < passwordLength; i++)
-  {
-    var randomNum = Math.floor(Math.random()*availableCharArray.length);
-    var randomArrayValue = availableCharArray[randomNum].toString();
-    generatedPassword += randomArrayValue;
-  }
-  console.log(generatedPassword);
-  writePassword(generatedPassword);
-  return generatedPassword;
 }
 
 
