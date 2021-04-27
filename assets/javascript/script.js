@@ -58,47 +58,43 @@ function presentPrompts()
       if(passwordLength >= 8 && passwordLength <=128)
       {
         passwordLength = passwordLength;
+        console.log(passwordLength, inclLowercase, inclUppercase, inclNumeric, inclSpecial);
       }
     }
-    password();
+    generatePassword();
 
 }
 
-function password()
+//Generate password
+function generatePassword()
 {
     //Set the generated password equal to an empty string to start.
     var generatedPassword = '';
+
     //Create an array of user selection
     var userSelectionArray = [inclLowercase, inclUppercase, inclNumeric, inclSpecial];
+
     //Create arrays of all possible characters. 
     var availableLowerArray = "abcdefghijklmnopqrstuvwxyz".split("");
     var availableUpperArrary = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var availableNumericArray = "0123456789".split("");
     var availableSpecialArray = "!@#$%^&*()-+=".split("");
+    
+    //Nest the character arrays into another array
+    var checkAgainstArray = [[availableLowerArray], [availableUpperArrary], [availableNumericArray], [availableSpecialArray]];
 
-    for (var i=0; i < userSelectionArray.length; i ++)
+    for (var i=0; i < userSelectionArray.length; i++)
     {
-      switch(false)
-      {
-        case userSelectionArray[0]:
-          availableLowerArray = [];
-          break;
-        case userSelectionArray[1]:
-          availableUpperArrary = [];
-          break;
-        case userSelectionArray[2]:
-          availableNumericArray = [];
-          break;
-        case userSelectionArray[3]:
-          availableSpecialArray = [];
-          break;
-        default:
-          break;
-      }
+      //console.log(userSelectionArray[i].valueOf(i));
+        if(userSelectionArray[i].valueOf(i) === false)
+        {
+          console.log(userSelectionArray[i].valueOf(i));
+          checkAgainstArray[i] = [];
+        }
     }
-
-    //Concatenate all character arrays to create master character array for password generation.
-    var availableCharArray = availableLowerArray.concat(availableUpperArrary, availableNumericArray, availableSpecialArray);
+    //Flatten the nested arrays created in check against array. 2 is used to bring it up two levels (and prevent further nested arrays which causes issues when trying to select 
+    //characters for the password)
+    var availableCharArray = checkAgainstArray.flat(2);
     console.log(availableCharArray);
     //Generate a random password
     for (var i=0; i < passwordLength; i++)
@@ -113,11 +109,6 @@ function password()
 }
 
 
-//Generate password
-function generatePassword()
-{
-
-}
 
 
 // Write password to the #password input
