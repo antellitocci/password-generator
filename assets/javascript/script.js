@@ -81,7 +81,7 @@ function generatePassword()
     var availableLowerArray = "abcdefghijklmnopqrstuvwxyz".split("");
     var availableUpperArrary = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var availableNumericArray = "0123456789".split("");
-    var availableSpecialArray = "!@#$%^&*()-+=".split(""); //I only used the special characters on the top row of the QWERTY keyboard starting at 1 and ending at =
+    var availableSpecialArray = "\"\'!#$%&()*+,-./:;<=>?@[\]^_`{|}~".split(""); 
     
     //Nest the possible character arrays into another array. A psuedo "all available characters" array if you will.
     var pseudoAllAvailChar = [[availableLowerArray], [availableUpperArrary], [availableNumericArray], [availableSpecialArray]];
