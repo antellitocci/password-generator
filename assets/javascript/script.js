@@ -43,7 +43,7 @@ function presentPrompts()
     console.log(inclNumeric);
 
     //Get user input regarding special characters
-    inclSpecial = window.confirm("Would you like to include special charcters (! or & for example)? \n\n('Ok' to include. 'Cancel' to exclude.)");
+    inclSpecial = window.confirm("Would you like to include special characters (! or & for example)? \n\n('Ok' to include. 'Cancel' to exclude.)");
     console.log(inclSpecial);
 
     //If user fails to select any of the character types, present them with the prompts again.
