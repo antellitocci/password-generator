@@ -52,19 +52,21 @@ function presentPrompts()
       window.confirm("Please be sure to select at least one criteria to generate a password.");
       presentPrompts();
     }
+    else
+    {
+      passwordLengthPrompt();
+    }
 
-    //Get user input for length of password to have
-    passwordLength = Number(window.prompt("Please select the length of your password. \n\n(Choose a number between 8 and 128.)", ""));
-    //Log password length for QA testing
-    console.log(passwordLength);
+}
+
+function passwordLengthPrompt()
+{
     //If the users response falls outside of acceptable password length range, keep presenting them with the password length selection dialog box until they choose an appropriate length.
     while (passwordLength < 8 || passwordLength > 128)
     {
+      //Get user input for length of password to have
       passwordLength = Number(window.prompt("Please select the length of your password. \n\nPassword must be between 8 and 128 characters.", ""));
-      if(passwordLength >= 8 && passwordLength <=128)
-      {
-        passwordLength = passwordLength;
-      }
+      console.log(passwordLength);
     }
     //Begin the password generation phase
     generatePassword();
@@ -114,12 +116,12 @@ function generatePassword()
     //log the password for QA testing
     console.log(generatedPassword);
 
+    //Reset password length
+    passwordLength = 0;
+
     //Run the writePassword function to print the password to the screen
     writePassword(generatedPassword);
 }
-
-
-
 
 // Write password to the #password input
 function writePassword(genPassword) {
@@ -130,17 +132,28 @@ function writePassword(genPassword) {
 
 }
 
+//Copy generated password to clipboard if desired.
 function copyToClipboard(genPassword)
 {
   //Get the text from password field
   var copyText = document.querySelector("#password");
-  //select the password text
-  copyText.select();
-  copyText.setSelectionRange(0,9999); //For mobile devices
-  //Copy the selected text
-  document.execCommand("copy");
-  //Alert the user the password has been copied
-  alert("Copied password!");
+
+  //Check that a password has been generated
+  if (copyText.value != "")
+  {
+    //select the password text
+    copyText.select();
+    copyText.setSelectionRange(0,9999); //For mobile devices
+    //Copy the selected text
+    document.execCommand("copy");
+    //Alert the user the password has been copied
+    alert("Copied password!");
+  }
+  else
+  {
+    alert("You must generate a password first.");
+  }
+
 }
 
 // Add event listener to generate button and then present prompts for the user
