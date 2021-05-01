@@ -15,8 +15,10 @@
   //Then display password on screen
   //Allow user to copy password to clipboard
 
-// Get references to the #generate element
+// Get references to the #generate element & #copy-text element
 var generateBtn = document.querySelector("#generate");
+var copyTextBtn = document.querySelector("#copy-text");
+
 
 //Create boolean variables to store user dialog choices and initialize password length at 0
 var inclLowercase = false;
@@ -128,5 +130,21 @@ function writePassword(genPassword) {
 
 }
 
+function copyToClipboard(genPassword)
+{
+  //Get the text from password field
+  var copyText = document.querySelector("#password");
+  //select the password text
+  copyText.select();
+  copyText.setSelectionRange(0,9999); //For mobile devices
+  //Copy the selected text
+  document.execCommand("copy");
+  //Alert the user the password has been copied
+  alert("Copied password!");
+}
+
 // Add event listener to generate button and then present prompts for the user
 generateBtn.addEventListener("click", presentPrompts);
+
+//Add event listener to copy to clipboard button to copy generated password to clipboard
+copyTextBtn.addEventListener("click", copyToClipboard);
