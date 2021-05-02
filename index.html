@@ -19,6 +19,37 @@
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
+
+        <div class="password-content">
+          <h4>Choose password options:</h4>
+
+          <div class="user-selections">
+            <div class="length-content">
+              <label for="password-length">Length: </label>
+              <input type="range" name="password-length" min="8" max="128" value="8" class="slider" id="password-length"/>
+              <input type="text" name="password-length-value" value ="" id="password-length-value" readonly />
+            </div>
+            <div class="checkboxes">
+              <div>
+                <input type="checkbox" name="incl-lowercase" value="lowercase" id="incl-lowercase" />
+                <label for="incl-lowercase">Include lowercase</label>
+              </div>
+              <div>
+                <input type="checkbox" name="incl-uppercase" value="uppercase" id="incl-uppercase" />
+                <label for="incl-uppercase">Include uppercase</label>
+              </div>
+              <div>
+                <input type="checkbox" name="incl-numbers" value="numbers" id="incl-numbers" />
+                <label for="incl-numbers">Include numbers</label>
+              </div>
+              <div>
+                <input type="checkbox" name="incl-special" value="special" id="incl-special" />
+                <label for="incl-special">Include special characters</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
         
         <div class="card-body">
           <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
