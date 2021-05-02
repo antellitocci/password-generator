@@ -1,20 +1,3 @@
-  //If generate password button is clicked
-  //Present prompts(1)
-  //Prompt 1 - Include lowercase letters?
-  //Store answer and update inclusion as T / F
-  //Prompt 2 - Include uppercase letters?
-  //Store answer and update inclusion as T / F
-  //Prompt 3 - Include numeric characters?
-  //Store answer and update inclusion as T / F
-  //Prompt 4 - Include special characters?
-  //Store answer and update inclusion as T / F
-  //Prompt 5 - Select length of password >=8 and <=128 characters
-  //Store answer
-  //Validate that at least one character type && appropriate length has been selected
-  //Generate Password
-  //Then display password on screen
-  //Allow user to copy password to clipboard
-
 // Get references to the #generate element & #copy-text element
 var generateBtn = document.querySelector("#generate");
 var copyTextBtn = document.querySelector("#copy-text");
@@ -32,19 +15,15 @@ function presentPrompts()
 {
     //Get user input regarding lowercase letters
     inclLowercase = window.confirm("Would you like to include lowercase letters? \n\n('Ok' to include. 'Cancel' to exclude.)");
-    console.log(inclLowercase);
-
+    
     //Get user input regarding uppercase letters
     inclUppercase = window.confirm("Would you like to include uppercase letters? \n\n('Ok' to include. 'Cancel' to exclude.)");
-    console.log(inclUppercase);
 
     //Get user input regarding numeric characters
     inclNumeric = window.confirm("Would you like to include numbers? \n\n('Ok' to include. 'Cancel' to exclude.)");
-    console.log(inclNumeric);
 
     //Get user input regarding special characters
     inclSpecial = window.confirm("Would you like to include special characters (! or & for example)? \n\n('Ok' to include. 'Cancel' to exclude.)");
-    console.log(inclSpecial);
 
     //If user fails to select any of the character types, present them with the prompts again.
     if (inclLowercase === false && inclUppercase === false && inclNumeric === false && inclSpecial === false)
@@ -66,7 +45,6 @@ function passwordLengthPrompt()
     {
       //Get user input for length of password to have
       passwordLength = Number(window.prompt("Please select the length of your password. \n\nPassword must be between 8 and 128 characters.", ""));
-      console.log(passwordLength);
     }
     //Begin the password generation phase
     generatePassword();
@@ -102,7 +80,7 @@ function generatePassword()
     //Flatten the nested arrays created in psuedoAllAvailChar array. 2 is used to bring it up two levels (and prevent further nested arrays which causes issues when trying to select 
     //characters for the password)
     var availableCharArray = pseudoAllAvailChar.flat(2);
-    console.log(availableCharArray);
+
     //Generate a random password
     for (var i=0; i < passwordLength; i++)
     {
@@ -113,9 +91,6 @@ function generatePassword()
       //add the random character to the password string.
       generatedPassword += randomArrayValue;
     }
-    //log the password for QA testing
-    console.log(generatedPassword);
-
     //Reset password length
     passwordLength = 0;
 

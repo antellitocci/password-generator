@@ -10,12 +10,12 @@ A web application designed to generate a random password based on prompts answer
 
 ## Preview
 
-Add image
+<img src="#" alt="password generator screenshot" width="715" height="994">
 
 ## Access the Project
 
-url
-url
+- Github repository available [here](https://github.com/antellitocci/password-generator)
+- Live web page (via Github Pages) available at [https://antellitocci.github.io/password-generator/](https://antellitocci.github.io/password-generator/)
 
 ## What's New
 
@@ -31,7 +31,7 @@ url
     * This only occurs if a password has been generated
 
 ## Additional Features
-> The develop branch of this application features a different prompt structure than the submitted work. The rationale for this is the criteria for submission specified prompts needed to be fed to the user. While this is an okay design, it is a bit cumbersome. To overcome this, I have added the following features to the develop branch (to be merged following grading):
+The develop branch of this application features a different prompt structure than the submitted work. The rationale for this is the criteria for submission specified prompts needed to be fed to the user. While this is an okay design, it is a bit cumbersome. To overcome this, I have added the following features to the develop branch (to be merged following grading):
     
 * A sliding scale for password length selection. 
     * This scale has a minimum value of 8 and and maximum value of 128. The selected length is displayed in a text-box to the left of the scale. This text box may also be used to key in a length.
