@@ -12,11 +12,6 @@ pwLengthSliderVal.oninput = function(){
   pwLengthValue.value = this.value;
 }
 
-
-
-
-
-
 //Present Prompts
 //function presentPrompts()
 //{
