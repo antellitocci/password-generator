@@ -10,7 +10,7 @@ A web application designed to generate a random password based on prompts answer
 
 ## Preview
 
-<img src="#" alt="password generator screenshot" width="715" height="994">
+<img src="https://raw.githubusercontent.com/antellitocci/password-generator/main/assets/images/password-generator-screenshot.png" alt="password generator screenshot" width="1000" height="750">
 
 ## Access the Project
 
