@@ -150,6 +150,7 @@ button[disabled] {
 #password-length-value
 {
   width: 50px;
+  margin: 12px 10px auto 12px;
 }
 
 @media (max-width: 690px) {
