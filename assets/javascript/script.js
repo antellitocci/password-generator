@@ -62,7 +62,7 @@ function presentPrompts()
 function passwordLengthPrompt()
 {
     //If the users response falls outside of acceptable password length range, keep presenting them with the password length selection dialog box until they choose an appropriate length.
-    while (passwordLength < 8 || passwordLength > 128)
+    while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength))
     {
       //Get user input for length of password to have
       passwordLength = Number(window.prompt("Please select the length of your password. \n\nPassword must be between 8 and 128 characters.", ""));
