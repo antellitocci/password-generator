@@ -118,6 +118,40 @@ button[disabled] {
   overflow: hidden;
 }
 
+.length-content
+{
+  width: 100%;
+}
+
+
+.user-selections
+{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 25px auto;
+}
+
+.checkboxes
+{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.checkboxes div
+{
+  margin: 5px;
+  padding: 5px;
+}
+
+#password-length-value
+{
+  width: 50px;
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
@@ -127,6 +161,12 @@ button[disabled] {
 
   #password {
     font-size: 1rem;
+  }
+
+  .user-selections
+  {
+    display: flex;
+    flex-direction: column;
   }
 }
 
