@@ -6,11 +6,21 @@ var copyTextBtn = document.querySelector("#copy-text");
 var pwLengthSliderVal = document.querySelector("#password-length");
 var pwLengthValue = document.querySelector("#password-length-value");
 
+
 pwLengthValue.value = pwLengthSliderVal.value;
+
+//Create boolean variables to store user dialog choices and initialize password length at 0
+var inclLowercase = false;
+var inclUppercase = false;
+var inclNumeric = false;
+var inclSpecial = false;
+var passwordLength = 0;
+
 
 pwLengthSliderVal.oninput = function(){
   pwLengthValue.value = this.value;
 }
+
 
 //Present Prompts
 //function presentPrompts()
@@ -117,9 +127,6 @@ function generatePassword()
       //add the random character to the password string.
       generatedPassword += randomArrayValue;
     }
-    //log the password for QA testing
-    console.log(generatedPassword);
-
     //Reset password length
     //passwordLength = 0;
 
